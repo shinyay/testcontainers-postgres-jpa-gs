@@ -1,4 +1,4 @@
-package io.spring.shinyay.test
+package io.spring.shinyay.test.repository
 
 import io.spring.shinyay.test.entity.Book
 import org.springframework.data.jpa.repository.JpaRepository
