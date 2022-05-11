@@ -8,6 +8,8 @@ data class Book(
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id", nullable = false)
     val id: Long,
+
+    @Column(name = "author")
     val author: String,
     val title: String,
     val year: Int)
