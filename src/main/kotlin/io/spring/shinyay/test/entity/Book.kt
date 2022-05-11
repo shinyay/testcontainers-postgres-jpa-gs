@@ -11,5 +11,9 @@ data class Book(
 
     @Column(name = "author")
     val author: String,
+
+    @Column(name = "title")
     val title: String,
+
+    @Column(name = "publicication_year")
     val year: Int)
