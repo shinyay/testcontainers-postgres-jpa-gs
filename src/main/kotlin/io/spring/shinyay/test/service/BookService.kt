@@ -9,5 +9,5 @@ class BookService(val bookRepository: BookRepository) {
 
     fun saveBook(book: Book) = bookRepository.save(book)
 
-    fun findAll() = bookRepository.findAll()
+    fun getBooks() = bookRepository.findAll()
 }
