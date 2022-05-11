@@ -1,10 +1,8 @@
 package io.spring.shinyay.test.entity
 
-import javax.persistence.Column
-import javax.persistence.GeneratedValue
-import javax.persistence.GenerationType
-import javax.persistence.Id
+import javax.persistence.*
 
+@Entity
 data class Book(
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
