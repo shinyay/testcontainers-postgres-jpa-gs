@@ -21,6 +21,12 @@ Overview
 docker compose -f docker/compose.yml up -d
 ```
 
+### Post Data
+
+```shell
+curl -X POST localhost:8080/api/v1/books -H 'Content-type:application/json' -d '{"author":"Shinya", "title":"Spring in Action", "year":"2022"}'
+```
+
 ## Installation
 
 ## References
