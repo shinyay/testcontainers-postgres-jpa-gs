@@ -15,6 +15,12 @@ Overview
 
 ## Usage
 
+### Run PostgreSQL with Docker Compose
+
+```shell
+docker compose -f docker/compose.yml up -d
+```
+
 ## Installation
 
 ## References
