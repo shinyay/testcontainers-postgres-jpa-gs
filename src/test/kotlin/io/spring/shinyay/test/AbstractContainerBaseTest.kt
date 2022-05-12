@@ -16,6 +16,7 @@ abstract class AbstractContainerBaseTest() {
         }
 
         @DynamicPropertySource
+        @JvmStatic
         fun registerDynamicProperties(registry: DynamicPropertyRegistry) {
             registry.add("spring.datasource.url", postgres::getJdbcUrl)
             registry.add("spring.datasource.username", postgres::getUsername)
