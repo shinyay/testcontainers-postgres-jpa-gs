@@ -1,4 +1,4 @@
-# Name
+# TestContainer with Spring Data JPA and PostgreSQL
 
 Overview
 
