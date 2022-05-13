@@ -25,6 +25,6 @@ class BookPostgreSQLContainerTest(
 
     @Test
     fun should_be_able_to_save_one_book() {
-        val book = Book(title = "Spring Boot in Action")
+        val book = Book(author = "Shinya Yanagihara", title = "Spring Boot in Action", year = 2020)
     }
 }
