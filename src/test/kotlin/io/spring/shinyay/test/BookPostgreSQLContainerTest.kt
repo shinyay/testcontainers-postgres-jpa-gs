@@ -10,6 +10,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post
+import org.springframework.test.web.servlet.result.MockMvcResultHandlers
 import org.testcontainers.junit.jupiter.Testcontainers
 
 @Testcontainers
@@ -35,5 +36,6 @@ class BookPostgreSQLContainerTest(
             .contentType("application/json")
             .content(ObjectMapper().writeValueAsString(book))
             .accept("application/json"))
+            .andDo(MockMvcResultHandlers.print())
     }
 }
