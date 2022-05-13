@@ -7,13 +7,13 @@ data class Book(
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id", nullable = false)
-    val id: Long,
+    val id: Long = 0,
 
     @Column(name = "author")
-    val author: String,
+    val author: String = "",
 
     @Column(name = "title")
-    val title: String,
+    val title: String = "",
 
     @Column(name = "publicication_year")
-    val year: Int)
+    val year: Int = 0)
