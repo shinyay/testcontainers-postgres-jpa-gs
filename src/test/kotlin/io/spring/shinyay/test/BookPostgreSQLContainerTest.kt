@@ -33,6 +33,7 @@ class BookPostgreSQLContainerTest(
         // when & then
         mockMvc.perform(post("/books")
             .contentType("application/json")
-            .content(ObjectMapper().writeValueAsString(book)))
+            .content(ObjectMapper().writeValueAsString(book))
+            .accept("application/json"))
     }
 }
