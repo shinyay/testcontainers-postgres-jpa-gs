@@ -19,6 +19,7 @@ class BookController(val bookService: BookService) {
     fun getBooks(): MutableList<Book> = bookService.getBooks()
 
     @PostMapping("/books")
+    @ResponseStatus(HttpStatus.CREATED, reason = "Book created")
     fun storeBook(@RequestBody book: Book): Book = bookService.storeBook(book)
 }
 
