@@ -40,5 +40,7 @@ class BookPostgreSQLContainerTest(
             .accept("application/json"))
             .andDo(MockMvcResultHandlers.print())
             .andExpect(MockMvcResultMatchers.status().isCreated)
+            .andExpect(MockMvcResultMatchers.jsonPath("$.author").value("Shinya Yanagihara"))
+
     }
 }
