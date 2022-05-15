@@ -39,6 +39,6 @@ class BookPostgreSQLContainerTest(
             .content(ObjectMapper().writeValueAsString(book))
             .accept("application/json"))
             .andDo(MockMvcResultHandlers.print())
-            .andExpect(MockMvcResultMatchers.status().isCreated())
+            .andExpect(MockMvcResultMatchers.status().isCreated)
     }
 }
