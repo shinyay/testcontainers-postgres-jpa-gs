@@ -34,7 +34,7 @@ class BookPostgreSQLContainerTest(
         val book = Book(author = "Shinya Yanagihara", title = "Spring Boot in Action", year = 2020)
 
         // when & then
-        mockMvc.perform(post("/books")
+        mockMvc.perform(post("/api/v1/books")
             .contentType("application/json")
             .content(ObjectMapper().writeValueAsString(book))
             .accept("application/json"))
