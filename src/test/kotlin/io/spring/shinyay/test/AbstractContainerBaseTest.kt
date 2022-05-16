@@ -6,7 +6,6 @@ import org.springframework.test.context.DynamicPropertySource
 import org.testcontainers.containers.PostgreSQLContainer
 import org.testcontainers.junit.jupiter.Container
 import org.testcontainers.junit.jupiter.Testcontainers
-import org.testcontainers.utility.DockerImageName
 
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @Testcontainers
@@ -14,11 +13,7 @@ abstract class AbstractContainerBaseTest() {
 
     companion object {
         @Container
-        @JvmStatic
-        val postgres = PostgreSQLContainer<Nothing>(DockerImageName.parse("postgres:14.2-alpine"))
-        init {
-            postgres.start()
-        }
+        val postgres = PostgreSQLContainer<Nothing>("postgres:14.2-alpine")
 
         @DynamicPropertySource
         @JvmStatic
