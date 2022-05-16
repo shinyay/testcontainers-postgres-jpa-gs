@@ -14,6 +14,6 @@ class BookService(val bookRepository: BookRepository) {
 
     fun getBooksByName(name: String): List<Book> {
         logger.info("getBookByName: $name")
-        return bookRepository.findByName(name)
+        return bookRepository.findByAuthor(name)
     }
 }
