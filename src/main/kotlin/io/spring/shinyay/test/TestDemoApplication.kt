@@ -9,3 +9,5 @@ class TestDemoApplication
 fun main(args: Array<String>) {
 	runApplication<TestDemoApplication>(*args)
 }
+
+val Any.logger get() = org.slf4j.LoggerFactory.getLogger(this::class.java)
