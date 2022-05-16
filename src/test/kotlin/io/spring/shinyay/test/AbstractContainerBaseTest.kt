@@ -14,6 +14,7 @@ abstract class AbstractContainerBaseTest() {
 
     companion object {
         @Container
+        @JvmStatic
         val postgres = PostgreSQLContainer<Nothing>(DockerImageName.parse("postgres:14.2-alpine"))
         init {
             postgres.start()
