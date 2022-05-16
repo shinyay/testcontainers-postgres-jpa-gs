@@ -12,8 +12,8 @@ class BookService(val bookRepository: BookRepository) {
 
     fun getBooks(): MutableList<Book> = bookRepository.findAll()
 
-    fun getBooksByName(name: String): List<Book> {
-        logger.info("getBookByName: $name")
+    fun getBooksByAuthor(name: String): List<Book> {
+        logger.info("getBookByAuthor: $name")
         return bookRepository.findByAuthor(name)
     }
 }
