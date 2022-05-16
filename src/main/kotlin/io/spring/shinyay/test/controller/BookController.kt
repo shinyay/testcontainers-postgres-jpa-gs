@@ -4,6 +4,7 @@ import io.spring.shinyay.test.entity.Book
 import io.spring.shinyay.test.service.BookService
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
@@ -17,6 +18,10 @@ class BookController(val bookService: BookService) {
     @GetMapping("/books")
     @ResponseStatus(HttpStatus.OK, reason = "Successfully retrieved books")
     fun getBooks(): MutableList<Book> = bookService.getBooks()
+
+    @GetMapping("/books/{name}")
+    @ResponseStatus(HttpStatus.OK, reason = "Successfully retrieved books")
+    fun getBooksByName(@PathVariable name: String): List<Book> = bookService.getBooksByName(name)
 
     @PostMapping("/books")
     @ResponseStatus(HttpStatus.CREATED, reason = "Book created")
