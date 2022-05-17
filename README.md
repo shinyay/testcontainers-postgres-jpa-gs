@@ -4,6 +4,12 @@ Overview
 
 ## Description
 
+### Unit Test
+
+```shell
+./gradlew test --tests 'io.spring.shinyay.test.unit.RepositoryTest'
+```
+
 ## Demo
 
 ## Features
