@@ -3,6 +3,7 @@ package io.spring.shinyay.test.entity
 import javax.persistence.*
 
 @Entity
+@Table(name = "books")
 data class Book(
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
