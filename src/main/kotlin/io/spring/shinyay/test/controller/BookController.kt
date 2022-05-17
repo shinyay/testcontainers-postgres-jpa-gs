@@ -17,25 +17,21 @@ import org.springframework.web.bind.annotation.RestController
 class BookController(val service: BookService) {
 
     @GetMapping("/books")
-//    @ResponseStatus(HttpStatus.OK, reason = "Successfully retrieved books")
     fun getBooks(): ResponseEntity<MutableList<Book>> {
         return ResponseEntity.status(HttpStatus.OK).body(service.getBooks())
     }
 
     @GetMapping("/books/{name}")
-//    @ResponseStatus(HttpStatus.OK, reason = "Successfully retrieved books")
     fun getBooksByAuthor(@PathVariable name: String): ResponseEntity<List<Book>> {
         return ResponseEntity.status(HttpStatus.OK).body(service.getBooksByAuthor(name))
     }
 
     @GetMapping("/book/{id}")
-//    @ResponseStatus(HttpStatus.OK, reason = "Successfully retrieved books")
     fun getBookById(@PathVariable id: Long): ResponseEntity<Book> {
         return ResponseEntity.status(HttpStatus.OK).body(service.getBookById(id))
     }
 
     @PostMapping("/books")
-//    @ResponseStatus(HttpStatus.CREATED, reason = "Book created")
     fun storeBook(@RequestBody book: Book): ResponseEntity<Book> {
         return ResponseEntity.status(HttpStatus.CREATED).body(service.storeBook(book))
     }
