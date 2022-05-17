@@ -38,6 +38,6 @@ class RepositoryTest : AbstractContainerBaseTest() {
         }
         val result = repository.findAll()
 
-        assertThat(result.count()).isEqualTo(1)
+        assertThat(result.count()).isEqualTo(2)
     }
 }
