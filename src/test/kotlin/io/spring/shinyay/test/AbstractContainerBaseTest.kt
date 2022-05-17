@@ -9,7 +9,15 @@ abstract class AbstractContainerBaseTest() {
 
     companion object {
         @Container
-        val postgres = PostgreSQLContainer<Nothing>("postgres:14.2-alpine")
+        val postgres = with(PostgreSQLContainer<Nothing>("postgres:14.2-alpine")) {
+            withDatabaseName("spring_boot_test")
+            withUsername("spring_boot_test")
+            withPassword("spring_boot_test")
+            withExposedPorts(5432)
+            withReuse(true)
+            start()
+            this
+        }
 
         @DynamicPropertySource
         @JvmStatic
