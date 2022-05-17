@@ -6,14 +6,19 @@ import io.spring.shinyay.test.repository.BookRepository
 import org.springframework.stereotype.Service
 
 @Service
-class BookService(val bookRepository: BookRepository) {
+class BookService(val repository: BookRepository) {
 
-    fun storeBook(book: Book) = bookRepository.save(book)
+    fun storeBook(book: Book) = repository.save(book)
 
-    fun getBooks(): MutableList<Book> = bookRepository.findAll()
+    fun getBooks(): MutableList<Book> = repository.findAll()
 
     fun getBooksByAuthor(name: String): List<Book> {
         logger.info("getBookByAuthor: $name")
-        return bookRepository.findByAuthor(name)
+        return repository.findByAuthor(name)
+    }
+
+    fun getBookById(id: Long): Book? {
+        logger.info("getBookById: $id")
+        return repository.findById(id).orElse(null)
     }
 }
