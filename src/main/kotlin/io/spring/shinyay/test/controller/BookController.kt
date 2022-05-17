@@ -21,7 +21,7 @@ class BookController(val bookService: BookService) {
 
     @GetMapping("/books/{name}")
     @ResponseStatus(HttpStatus.OK, reason = "Successfully retrieved books")
-    fun getBooksByName(@PathVariable name: String): List<Book> = bookService.getBooksByAuthor(name)
+    fun getBooksByAuthor(@PathVariable name: String): List<Book> = bookService.getBooksByAuthor(name)
 
     @PostMapping("/books")
     @ResponseStatus(HttpStatus.CREATED, reason = "Book created")
