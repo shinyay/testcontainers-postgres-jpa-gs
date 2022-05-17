@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository
 @Repository
 interface BookRepository : JpaRepository<Book, Long> {
 
-    fun findByAuthor(author: String): List<Book>
+    fun findByAuthor(author: String): MutableList<Book>
 }
