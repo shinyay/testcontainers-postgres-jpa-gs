@@ -30,9 +30,9 @@ class RepositoryTest : AbstractContainerBaseTest() {
 
     @Test
     @Order(1)
-    fun should_be_able_to_find_no_books_at_initial() {
+    fun should_be_able_to_find_all_books_at_initial() {
         val result = repository.findAll()
-        assertThat(result.count()).isEqualTo(0)
+        assertThat(result.count()).isEqualTo(2)
     }
 
     @Test
