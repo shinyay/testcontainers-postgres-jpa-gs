@@ -6,6 +6,8 @@ Overview
 
 ### Unit Test
 
+- Slice test with Using `@DataJpaTest`
+
 ```shell
 ./gradlew test --tests 'io.spring.shinyay.test.unit.RepositoryTest'
 ```
