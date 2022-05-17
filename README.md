@@ -14,6 +14,8 @@ Overview
 
 ### Integration Test
 
+- Slice test with Using `@SpringBootTest` and `@AutoConfigureMockMvc`
+
 ```shell
 ./gradlew test --tests 'io.spring.shinyay.test.BookPostgreSQLContainerTest'
 ```
