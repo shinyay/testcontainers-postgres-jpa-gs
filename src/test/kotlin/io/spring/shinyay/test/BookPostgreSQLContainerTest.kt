@@ -10,10 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
 import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.http.MediaType
 import org.springframework.test.web.servlet.MockMvc
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post
-import org.springframework.test.web.servlet.result.MockMvcResultHandlers
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers
+import org.springframework.test.web.servlet.result.MockMvcResultHandlers.*
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers.*
 import org.testcontainers.junit.jupiter.Testcontainers
 
 @Testcontainers
@@ -23,6 +25,8 @@ import org.testcontainers.junit.jupiter.Testcontainers
 class BookPostgreSQLContainerTest(
     @Autowired
     val mockMvc: MockMvc,
+    @Autowired
+    val objectMapper: ObjectMapper,
     @Autowired
     val repository: BookRepository
 ) : AbstractContainerBaseTest() {
@@ -34,19 +38,20 @@ class BookPostgreSQLContainerTest(
     @Order(1)
     fun should_be_able_to_save_one_book() {
         // given
-        val book = Book(author = "Shinya Yanagihara", title = "Spring Boot in Action", year = 2020)
+        val json = objectMapper.writeValueAsString(
+            Book(author = "Shinya Yanagihara", title = "Spring Boot in Action", year = 2020)
+        )
 
         // when & then
-        mockMvc.perform(
-            post("/api/v1/books")
-                .contentType("application/json")
-                .content(ObjectMapper().writeValueAsString(book))
-                .accept("application/json")
-        )
-            .andDo(MockMvcResultHandlers.print())
-            .andExpect(MockMvcResultMatchers.status().isCreated)
-            .andExpect(MockMvcResultMatchers.jsonPath("$.author").value("Shinya Yanagihara"))
-            .andExpect(MockMvcResultMatchers.jsonPath("$.title").value("Spring Boot in Action"))
-            .andExpect(MockMvcResultMatchers.jsonPath("$.year").value(2020))
+        mockMvc.perform(post("/api/v1/books")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(json))
+            .andDo(print())
+            .andExpect(status().isCreated)
+        mockMvc.perform(get("/api/v1/book/1"))
+            .andDo(print())
+            .andExpect(jsonPath("$.length()").value(1))
+//            .andExpect(MockMvcResultMatchers.jsonPath("$.title").value("Spring Boot in Action"))
+//            .andExpect(MockMvcResultMatchers.jsonPath("$.year").value(2020))
     }
 }
