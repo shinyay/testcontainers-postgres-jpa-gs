@@ -3,6 +3,7 @@ package io.spring.shinyay.test.unit
 import io.spring.shinyay.test.AbstractContainerBaseTest
 import io.spring.shinyay.test.repository.BookRepository
 import org.assertj.core.api.Assertions.assertThat
+import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase
@@ -18,8 +19,9 @@ class RepositoryTest : AbstractContainerBaseTest() {
     lateinit var repository: BookRepository
 
     @Test
-    fun should_be_able_to_find_all_books() {
+    @Order(1)
+    fun should_be_able_to_find_no_books_at_initial() {
         val result = repository.findAll()
-        assertThat(result.count()).isEqualTo(1)
+        assertThat(result.count()).isEqualTo(0)
     }
 }
