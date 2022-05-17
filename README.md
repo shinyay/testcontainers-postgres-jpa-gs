@@ -10,6 +10,12 @@ Overview
 ./gradlew test --tests 'io.spring.shinyay.test.unit.RepositoryTest'
 ```
 
+### Integration Test
+
+```shell
+./gradlew test --tests 'io.spring.shinyay.test.BookPostgreSQLContainerTest'
+```
+
 ## Demo
 
 ## Features
