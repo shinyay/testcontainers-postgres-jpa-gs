@@ -47,6 +47,16 @@ class RepositoryTest : AbstractContainerBaseTest() {
         }
         val result = repository.findAll()
 
-        assertThat(result.count()).isEqualTo(2)
+        assertThat(result.count()).isEqualTo(4)
+    }
+
+    @Test
+    @Order(3)
+    fun should_be_able_to_find_all_books_when_delete() {
+
+        repository.deleteById(1)
+
+        val result = repository.findAll()
+        assertThat(result.count()).isEqualTo(1)
     }
 }
