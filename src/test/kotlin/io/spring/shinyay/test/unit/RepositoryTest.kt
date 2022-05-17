@@ -4,8 +4,10 @@ import io.spring.shinyay.test.AbstractContainerBaseTest
 import io.spring.shinyay.test.entity.Book
 import io.spring.shinyay.test.repository.BookRepository
 import org.assertj.core.api.Assertions.assertThat
+import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.TestInstance
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
@@ -14,10 +16,17 @@ import org.testcontainers.junit.jupiter.Testcontainers
 @Testcontainers
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class RepositoryTest : AbstractContainerBaseTest() {
 
     @Autowired
     lateinit var repository: BookRepository
+
+    @BeforeAll
+    fun setup() {
+        repository.save(Book(title = "Spring Framework", author = "shinyay"))
+        repository.save(Book(title = "Spring Boot", author = "shinyay"))
+    }
 
     @Test
     @Order(1)
