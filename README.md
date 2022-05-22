@@ -2,9 +2,6 @@
 
 Testcontainers is a Java library that supports JUnit tests, providing lightweight, throwaway instances of common databases, Selenium web browsers, or anything else that can run in a Docker container.
 
-When $a \ne 0$, there are two solutions to $(ax^2 + bx + c = 0)$ and they are 
-$$ x = {-b \pm \sqrt{b^2-4ac} \over 2a} $$
-
 ## Description
 
 ### Unit Test
