@@ -12,6 +12,8 @@ This tutorial
 - Unit Tests: Slice Test with `@DataJpaTest`
 - Integration Tests: Slice Test with `@SpringBootTest` and `@AutoConfigureMockMvc`
 
+## Demo
+
 ### Unit Test
 
 - Slice test with Using `@DataJpaTest`
@@ -27,8 +29,6 @@ This tutorial
 ```shell
 ./gradlew test --tests 'io.spring.shinyay.test.BookPostgreSQLContainerTest'
 ```
-
-## Demo
 
 ## Features
 
