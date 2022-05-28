@@ -37,6 +37,16 @@ This tutorial
 
 ## Requirement
 
+### Dependencies
+
+- `PostgreSQL`
+```yaml
+dependencies {
+	runtimeOnly("org.postgresql:postgresql")
+	testImplementation("org.testcontainers:postgresql")
+}
+```
+
 ## Usage
 
 ### Run PostgreSQL with Docker Compose
