@@ -1,6 +1,7 @@
-package io.spring.shinyay.test
+package io.spring.shinyay.test.integration
 
 import com.fasterxml.jackson.databind.ObjectMapper
+import io.spring.shinyay.test.AbstractContainerBaseTest
 import io.spring.shinyay.test.entity.Book
 import io.spring.shinyay.test.repository.BookRepository
 import org.junit.jupiter.api.BeforeEach

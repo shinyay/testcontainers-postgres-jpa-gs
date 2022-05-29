@@ -12,6 +12,20 @@ This tutorial
 - Unit Tests: Slice Test with `@DataJpaTest`
 - Integration Tests: Slice Test with `@SpringBootTest` and `@AutoConfigureMockMvc`
 
+### Code Sample
+
+#### Unit Test
+
+In order to use TC in @DataJpaTest you need to make sure that the application defined (auto-configured) datasource is used.
+You can do it easily by annotating your test with @AutoConfigureTestDatabase as shown below:
+
+```kotlin
+@Testcontainers
+@DataJpaTest
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
+class RepositoryTest
+```
+
 ## Demo
 
 ### Unit Test
