@@ -26,6 +26,18 @@ You can do it easily by annotating your test with @AutoConfigureTestDatabase as 
 class RepositoryTest
 ```
 
+#### Integration Test
+
+`@SpringBootTest` will use application defined datasource
+
+```kotlin
+@Testcontainers
+@SpringBootTest
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
+@AutoConfigureMockMvc
+class BookPostgreSQLContainerTest
+```
+
 ## Demo
 
 ### Unit Test
