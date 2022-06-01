@@ -16,5 +16,5 @@ data class Book(
     @Column(name = "title")
     val title: String = "",
 
-    @Column(name = "publicication_year")
+    @Column(name = "publication_year")
     val year: Int = 0)
