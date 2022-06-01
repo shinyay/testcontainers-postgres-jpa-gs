@@ -22,11 +22,11 @@ class RepositoryTest : AbstractContainerBaseTest() {
     @Autowired
     lateinit var repository: BookRepository
 
-    @BeforeAll
-    fun setup() {
-        repository.save(Book(title = "Spring Framework", author = "shinyay"))
-        repository.save(Book(title = "Spring Boot", author = "shinyay"))
-    }
+//    @BeforeAll
+//    fun setup() {
+//        repository.save(Book(title = "Spring Framework", author = "shinyay"))
+//        repository.save(Book(title = "Spring Boot", author = "shinyay"))
+//    }
 
     @Test
     @Order(1)
