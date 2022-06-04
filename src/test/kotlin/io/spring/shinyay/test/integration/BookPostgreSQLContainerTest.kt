@@ -16,6 +16,7 @@ import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers.*
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.*
 import org.testcontainers.junit.jupiter.Testcontainers
 
@@ -65,8 +66,8 @@ class BookPostgreSQLContainerTest(
             .andExpect(status().isCreated)
         mockMvc.perform(get("/api/v1/book/1"))
             .andDo(print())
-            .andExpect(jsonPath("$.length()").value(1))
-//            .andExpect(MockMvcResultMatchers.jsonPath("$.title").value("Spring Boot in Action"))
-//            .andExpect(MockMvcResultMatchers.jsonPath("$.year").value(2020))
+            .andExpect(jsonPath("$.author").value("Shinya Yanagihara"))
+            .andExpect(jsonPath("$.title").value("Spring Boot in Action"))
+            .andExpect(jsonPath("$.year").value(2020))
     }
 }
