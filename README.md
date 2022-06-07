@@ -43,6 +43,9 @@ class BookPostgreSQLContainerTest
 Flyway is an open-source database migration tool.
 - [flywaydb.org](https://flywaydb.org/)
 
+1. [Initialize Schema](src/test/resources/db/migration/V001__init.sql)
+2. [Test Data](src/test/resources/db/migration/V002__insert_books.sql)
+
 ## Demo
 
 ### Unit Test
