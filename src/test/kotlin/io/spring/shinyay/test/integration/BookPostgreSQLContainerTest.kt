@@ -62,6 +62,7 @@ class BookPostgreSQLContainerTest(
             .andDo(print())
             .andExpect(status().isOk)
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+            .andExpect(jsonPath("$.length()").value(3))
     }
 
 //    @Test
