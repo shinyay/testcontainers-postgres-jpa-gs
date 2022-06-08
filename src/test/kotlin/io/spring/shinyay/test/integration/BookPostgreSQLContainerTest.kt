@@ -33,8 +33,8 @@ class BookPostgreSQLContainerTest(
     val repository: BookRepository
 ) : AbstractContainerBaseTest() {
 
-    @BeforeEach
-    fun setUp() = repository.deleteAll()
+//    @BeforeEach
+//    fun setUp() = repository.deleteAll()
 
     @Test
     @Order(1)
