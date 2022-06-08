@@ -9,3 +9,5 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQL82Dialect
+  flyway:
+    enabled: true
