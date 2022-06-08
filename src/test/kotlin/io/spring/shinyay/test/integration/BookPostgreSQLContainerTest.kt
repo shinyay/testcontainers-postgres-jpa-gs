@@ -50,6 +50,20 @@ class BookPostgreSQLContainerTest(
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
     }
 
+    @Test
+    @Order(2)
+    fun should_return_three_when_get_all_books() {
+
+        // given
+        // V002_insert_book_data.sql
+
+        // when & then
+        mockMvc.perform(get("/api/v1/books"))
+            .andDo(print())
+            .andExpect(status().isOk)
+            .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+    }
+
 //    @Test
 //    @Order(2)
 //    fun should_be_able_to_save_one_book() {
