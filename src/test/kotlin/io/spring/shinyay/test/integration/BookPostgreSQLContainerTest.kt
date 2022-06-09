@@ -73,6 +73,7 @@ class BookPostgreSQLContainerTest(
         // V002_insert_book_data.sql
 
         // when & then
+        // id, author, title, year
         mockMvc.perform(get("/api/v1/book/1"))
             .andDo(print())
             .andExpect(status().isOk)
