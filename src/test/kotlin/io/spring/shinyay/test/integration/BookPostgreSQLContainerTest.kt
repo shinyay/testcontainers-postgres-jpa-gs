@@ -97,6 +97,7 @@ class BookPostgreSQLContainerTest(
             .andExpect(jsonPath("$.id").value(1))
             .andExpect(jsonPath("$.title").value("Spring Framework 6"))
             .andExpect(jsonPath("$.author").value("shinyay"))
+            .andExpect(jsonPath("$.year").value("2022"))
     }
 
 //    @Test
