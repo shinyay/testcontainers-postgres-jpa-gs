@@ -65,6 +65,21 @@ class BookPostgreSQLContainerTest(
             .andExpect(jsonPath("$.length()").value(3))
     }
 
+    @Test
+    @Order(3)
+    fun should_return_the_one_when_get_one_book() {
+
+        // given
+        // V002_insert_book_data.sql
+
+        // when & then
+        mockMvc.perform(get("/api/v1/book/1"))
+            .andDo(print())
+            .andExpect(status().isOk)
+            .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+            .andExpect(jsonPath("$.length()").value(3))
+    }
+
 //    @Test
 //    @Order(2)
 //    fun should_be_able_to_save_one_book() {
