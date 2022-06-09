@@ -67,7 +67,7 @@ class BookPostgreSQLContainerTest(
 
     @Test
     @Order(3)
-    fun should_return_the_one_when_get_one_book() {
+    fun should_return_four_attributes_when_get_one_book() {
 
         // given
         // V002_insert_book_data.sql
@@ -77,7 +77,7 @@ class BookPostgreSQLContainerTest(
             .andDo(print())
             .andExpect(status().isOk)
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-            .andExpect(jsonPath("$.length()").value(3))
+            .andExpect(jsonPath("$.length()").value(4))
     }
 
 //    @Test
