@@ -114,6 +114,7 @@ class BookPostgreSQLContainerTest(
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$[0].id").value(1))
             .andExpect(jsonPath("$[0].title").value("Spring Framework 6"))
+            .andExpect(jsonPath("$[0].author").value("shinyay"))
     }
 
     @Test
