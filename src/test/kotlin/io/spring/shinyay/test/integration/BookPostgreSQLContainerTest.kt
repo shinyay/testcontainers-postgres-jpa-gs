@@ -145,12 +145,13 @@ class BookPostgreSQLContainerTest(
     fun should_return_the_added_book_when_insert_one_book() {
 
         // given
-        val book = Book(
-            author = "yanagiharas",
-            title = "Spring in Action",
-            year = 2021
+        val json = objectMapper.writeValueAsString(
+            Book(
+                author = "yanagiharas",
+                title = "Spring in Action",
+                year = 2021
+            )
         )
-        val json = objectMapper.writeValueAsString(book)
 
         // when & then
 
