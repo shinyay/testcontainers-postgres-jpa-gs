@@ -150,7 +150,7 @@ class BookPostgreSQLContainerTest(
             title = "Spring in Action",
             year = 2021
         )
-
+        val json = objectMapper.writeValueAsString(book)
 
         // when & then
 
