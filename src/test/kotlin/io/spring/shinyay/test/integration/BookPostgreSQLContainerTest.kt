@@ -131,6 +131,7 @@ class BookPostgreSQLContainerTest(
             .andExpect(status().isOk)
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$[1].id").value(2))
+            .andExpect(jsonPath("$[1].title").value("Spring Boot 3"))
     }
 
 //    @Test
