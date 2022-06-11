@@ -146,7 +146,7 @@ class BookPostgreSQLContainerTest(
 
         // given
         val book = Book(
-            author = "shinyay",
+            author = "yanagiharas",
             title = "Spring in Action",
             year = 2021
         )
