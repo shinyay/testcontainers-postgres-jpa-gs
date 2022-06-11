@@ -140,6 +140,22 @@ class BookPostgreSQLContainerTest(
             .andExpect(jsonPath("$[2].year").value("2021"))
     }
 
+    @Test
+    @Order(6)
+    fun should_return_the_added_book_when_insert_one_book() {
+
+        // given
+        val book = Book(
+            author = "shinyay",
+            title = "Spring in Action",
+            year = 2021
+        )
+
+
+        // when & then
+
+    }
+
 //    @Test
 //    @Order(2)
 //    fun should_be_able_to_save_one_book() {
