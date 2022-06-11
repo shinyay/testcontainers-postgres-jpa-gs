@@ -154,6 +154,9 @@ class BookPostgreSQLContainerTest(
         )
 
         // when & then
+        mockMvc.perform(post("/api/v1/book")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(json))
 
     }
 
