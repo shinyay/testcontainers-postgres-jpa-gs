@@ -6,7 +6,7 @@ import javax.persistence.*
 @Table(name = "books")
 data class Book(
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     val id: Long = 0,
 
