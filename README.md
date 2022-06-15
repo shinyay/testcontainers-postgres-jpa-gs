@@ -62,6 +62,9 @@ CREATE SEQUENCE userid_seq
 ```
 
 - `GenerationType.TABLE`
+
+The TableGenerator uses an underlying database table that holds segments of identifier generation values.
+
 - `GenerationType.AUTO`
 
 #### Unit Test
