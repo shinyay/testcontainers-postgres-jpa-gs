@@ -25,6 +25,13 @@ This tutorial
     val id: Long = 0
 ```
 
+##### Strategy
+
+- `GenerationType.IDENTITY`
+- `GenerationType.SEQUENCE`
+- `GenerationType.TABLE`
+- `GenerationType.AUTO`
+
 #### Unit Test
 
 In order to use TC in @DataJpaTest you need to make sure that the application defined (auto-configured) datasource is used.
