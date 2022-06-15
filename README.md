@@ -16,6 +16,14 @@ This tutorial
 
 #### Entity
 
+- Auto generated ID
+
+```kotlin
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    val id: Long = 0
+```
 
 #### Unit Test
 
