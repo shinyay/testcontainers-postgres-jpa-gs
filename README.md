@@ -14,6 +14,9 @@ This tutorial
 
 ### Code Sample
 
+#### Entity
+
+
 #### Unit Test
 
 In order to use TC in @DataJpaTest you need to make sure that the application defined (auto-configured) datasource is used.
