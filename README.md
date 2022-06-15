@@ -51,7 +51,15 @@ This generator uses sequences if your database supports them.
 
 Need to create Sequence Object specified by `SequeceName`
 
-
+```sql
+CREATE SEQUENCE userid_seq
+    INCREMENT 1
+    MINVALUE 1
+    MAXVALUE 10000
+    START 1
+    CACHE 1
+    CYCLE;
+```
 
 - `GenerationType.TABLE`
 - `GenerationType.AUTO`
