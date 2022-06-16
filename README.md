@@ -41,7 +41,8 @@ Column type should be `SERIAL`
 id SERIAL NOT NULL
 ```
 
-- `GenerationType.SEQUENCE`
+###### `GenerationType.SEQUENCE`
+
   - Oracle
   - PostgreSQL
   - DB2
