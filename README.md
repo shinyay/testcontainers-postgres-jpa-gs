@@ -62,7 +62,7 @@ CREATE SEQUENCE userid_seq
     CYCLE;
 ```
 
-- `GenerationType.TABLE`
+######  `GenerationType.TABLE`
 
 The TableGenerator uses an underlying database table that holds segments of identifier generation values.
 
