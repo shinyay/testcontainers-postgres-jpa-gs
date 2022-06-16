@@ -27,7 +27,7 @@ This tutorial
 
 ##### Strategy
 
-- `GenerationType.IDENTITY`
+###### `GenerationType.IDENTITY`
   - MySQL
   - PostgreSQL
   - SQL Server
