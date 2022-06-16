@@ -66,7 +66,7 @@ CREATE SEQUENCE userid_seq
 
 The TableGenerator uses an underlying database table that holds segments of identifier generation values.
 
-- `GenerationType.AUTO`
+###### `GenerationType.AUTO`
 
 If you're using the default generation type, the persistence provider will determine values based on the type of the primary key attribute. This type can be numerical or UUID.
 
