@@ -159,7 +159,7 @@ class BookPostgreSQLContainerTest(
             .content(json))
             .andDo(print())
             .andExpect(status().isCreated)
-
+            .andExpect(content().contentType(MediaType.APPLICATION_JSON))
     }
 
 //    @Test
