@@ -21,4 +21,6 @@ class BookService(val repository: BookRepository) {
         logger.info("getBookById: $id")
         return repository.findById(id).orElse(null)
     }
+
+    fun updateBook(id: Long, book: Book) = repository.updateBook(id, book)
 }
