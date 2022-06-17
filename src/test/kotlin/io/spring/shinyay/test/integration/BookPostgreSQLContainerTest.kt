@@ -166,6 +166,20 @@ class BookPostgreSQLContainerTest(
             .andExpect(jsonPath("$.year").value("2021"))
     }
 
+    @Test
+    @Order(7)
+    fun should_return_the_added_book_when_get_one_book() {
+
+        // given
+        val json = objectMapper.writeValueAsString(
+            Book(
+                author = "yanagiharas",
+                title = "Spring in Action",
+                year = 2021
+            )
+        )
+    }
+
 //    @Test
 //    @Order(2)
 //    fun should_be_able_to_save_one_book() {
