@@ -178,6 +178,12 @@ class BookPostgreSQLContainerTest(
                 year = 2021
             )
         )
+
+        // when & then
+        mockMvc.perform(get("/api/v1/book/4"))
+            .andDo(print())
+            .andExpect(status().isOk)
+            .andExpect(content().contentType(MediaType.APPLICATION_JSON))
     }
 
 //    @Test
