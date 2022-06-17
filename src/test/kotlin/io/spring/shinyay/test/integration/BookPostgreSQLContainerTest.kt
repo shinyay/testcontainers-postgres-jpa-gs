@@ -187,6 +187,7 @@ class BookPostgreSQLContainerTest(
             .andExpect(jsonPath("$.id").value(4))
             .andExpect(jsonPath("$.title").value("Spring in Action"))
             .andExpect(jsonPath("$.author").value("yanagiharas"))
+            .andExpect(jsonPath("$.year").value("2020"))
     }
 
 //    @Test
