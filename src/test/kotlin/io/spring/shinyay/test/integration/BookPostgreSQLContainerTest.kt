@@ -13,8 +13,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.http.MediaType
 import org.springframework.test.web.servlet.MockMvc
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers.*
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.*
@@ -188,6 +187,22 @@ class BookPostgreSQLContainerTest(
             .andExpect(jsonPath("$.title").value("Spring in Action"))
             .andExpect(jsonPath("$.author").value("yanagiharas"))
             .andExpect(jsonPath("$.year").value("2021"))
+    }
+
+    @Test
+    @Order(8)
+    fun should_return_the_updated_book_when_update_one_book() {
+
+        // given
+        val json = objectMapper.writeValueAsString(
+            Book(
+                id = 1,
+                author = "yanagiharas",
+                title = "Spring in Action",
+                year = 2021
+            )
+        )
+
     }
 
 //    @Test
