@@ -196,7 +196,6 @@ class BookPostgreSQLContainerTest(
         // given
         val json = objectMapper.writeValueAsString(
             Book(
-                id = 1,
                 author = "yanagiharas",
                 title = "Spring in Action",
                 year = 2021
