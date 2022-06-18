@@ -203,6 +203,17 @@ class BookPostgreSQLContainerTest(
             )
         )
 
+        // when & then
+        mockMvc.perform(put("/api/v1/book/1")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(json))
+            .andDo(print())
+            .andExpect(status().isOk)
+            .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+            .andExpect(jsonPath("$.id").value(1))
+            .andExpect(jsonPath("$.title").value("Spring in Action"))
+            .andExpect(jsonPath("$.author").value("yanagiharas"))
+            .andExpect(jsonPath("$.year").value("2021"))
     }
 
 //    @Test
