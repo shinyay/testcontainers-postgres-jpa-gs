@@ -203,7 +203,7 @@ class BookPostgreSQLContainerTest(
         )
 
         // when & then
-        mockMvc.perform(put("/api/v1/book/1")
+        mockMvc.perform(put("/api/v1/book/4")
             .contentType(MediaType.APPLICATION_JSON)
             .content(json))
             .andDo(print())
