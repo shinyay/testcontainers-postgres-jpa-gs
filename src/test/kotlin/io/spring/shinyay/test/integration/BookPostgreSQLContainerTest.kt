@@ -209,7 +209,7 @@ class BookPostgreSQLContainerTest(
             .andDo(print())
             .andExpect(status().isOk)
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-            .andExpect(jsonPath("$.id").value(1))
+            .andExpect(jsonPath("$.id").value(4))
             .andExpect(jsonPath("$.title").value("Spring in Action"))
             .andExpect(jsonPath("$.author").value("yanagiharas"))
             .andExpect(jsonPath("$.year").value("2021"))
