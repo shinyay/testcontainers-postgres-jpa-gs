@@ -11,10 +11,10 @@ data class Book(
     val id: Long = 0,
 
     @Column(name = "author")
-    var author: String = "",
+    val author: String = "",
 
     @Column(name = "title")
-    var title: String = "",
+    val title: String = "",
 
     @Column(name = "publication_year")
-    var year: Int = 0)
+    val year: Int = 0)
