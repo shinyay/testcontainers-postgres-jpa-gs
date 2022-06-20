@@ -198,7 +198,7 @@ class BookPostgreSQLContainerTest(
             Book(
                 id = 4,
                 author = "shinyay",
-                title = "Spring in Action",
+                title = "Spring in Practice",
                 year = 2021
             )
         )
@@ -211,7 +211,7 @@ class BookPostgreSQLContainerTest(
             .andExpect(status().isOk)
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$.id").value(4))
-            .andExpect(jsonPath("$.title").value("Spring in Action"))
+            .andExpect(jsonPath("$.title").value("Spring in Practice"))
             .andExpect(jsonPath("$.author").value("shinyay"))
             .andExpect(jsonPath("$.year").value("2021"))
     }
