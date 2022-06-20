@@ -22,4 +22,14 @@ class BookService(val repository: BookRepository) {
         return repository.findById(id).orElse(null)
     }
 
+    fun updateBook(id: Long, book: Book): Book? {
+        logger.info("updateBook: $id")
+        return repository.findById(id).map {
+            it.title = book.title
+            it.author = book.author
+            it.year = book.year
+            repository.save(it)
+        }.orElse(null)
+    }
+
 }
