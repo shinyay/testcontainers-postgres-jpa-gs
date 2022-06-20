@@ -189,6 +189,33 @@ class BookPostgreSQLContainerTest(
             .andExpect(jsonPath("$.year").value("2021"))
     }
 
+    @Test
+    @Order(8)
+    fun should_return_the_updated_book_when_update_one_book() {
+
+        // given
+        val json = objectMapper.writeValueAsString(
+            Book(
+                id = 1,
+                author = "yanagiharas",
+                title = "Spring in Action",
+                year = 2021
+            )
+        )
+
+        // when & then
+        mockMvc.perform(put("/api/v1/book/1")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(json))
+            .andDo(print())
+            .andExpect(status().isOk)
+            .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+            .andExpect(jsonPath("$.id").value(1))
+            .andExpect(jsonPath("$.title").value("Spring in Action"))
+            .andExpect(jsonPath("$.author").value("yanagiharas"))
+            .andExpect(jsonPath("$.year").value("2021"))
+    }
+
 
 //    @Test
 //    @Order(2)
