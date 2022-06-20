@@ -32,7 +32,7 @@ class BookService(val repository: BookRepository) {
             it.year = book.year
             ResponseEntity.status(HttpStatus.NO_CONTENT).body(repository.save(it))
         }.orElse(
-            null
+            ResponseEntity.status(HttpStatus.CREATED).body(repository.save(book))
         )
     }
 
