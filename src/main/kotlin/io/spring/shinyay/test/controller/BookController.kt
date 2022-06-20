@@ -27,7 +27,7 @@ class BookController(val service: BookService) {
 
     @PostMapping("/books")
     fun storeBook(@RequestBody book: Book): ResponseEntity<Book> {
-        return ResponseEntity.status(HttpStatus.CREATED).body(service.storeBook(book))
+        return service.storeBook(book)
     }
 
     @PutMapping("/book/{id}")
