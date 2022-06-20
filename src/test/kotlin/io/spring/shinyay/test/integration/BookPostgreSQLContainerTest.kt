@@ -197,7 +197,7 @@ class BookPostgreSQLContainerTest(
         val json = objectMapper.writeValueAsString(
             Book(
                 id = 4,
-                author = "yanagiharas",
+                author = "shinyay",
                 title = "Spring in Action",
                 year = 2021
             )
@@ -212,7 +212,7 @@ class BookPostgreSQLContainerTest(
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$.id").value(4))
             .andExpect(jsonPath("$.title").value("Spring in Action"))
-            .andExpect(jsonPath("$.author").value("yanagiharas"))
+            .andExpect(jsonPath("$.author").value("shinyay"))
             .andExpect(jsonPath("$.year").value("2021"))
     }
 
