@@ -30,6 +30,7 @@ class BookController(val service: BookService) {
         return ResponseEntity.status(HttpStatus.CREATED).body(service.storeBook(book))
     }
 
+    @PutMapping("/books/{id}")
     fun updateBook(@PathVariable id: Long, @RequestBody book: Book): ResponseEntity<Book> {
         return ResponseEntity.status(HttpStatus.OK).body(service.updateBook(id, book))
     }
