@@ -5,8 +5,10 @@ import io.spring.shinyay.test.AbstractContainerBaseTest
 import io.spring.shinyay.test.entity.Book
 import io.spring.shinyay.test.repository.BookRepository
 import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.MethodOrderer
 import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.TestMethodOrder
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
@@ -23,6 +25,7 @@ import org.testcontainers.junit.jupiter.Testcontainers
 @SpringBootTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @AutoConfigureMockMvc
+@TestMethodOrder(MethodOrderer.OrderAnnotation::class)
 class BookPostgreSQLContainerTest(
     @Autowired
     val mockMvc: MockMvc,
@@ -118,7 +121,7 @@ class BookPostgreSQLContainerTest(
     }
 
     @Test
-    @Order(5)
+    @Order(6)
     fun should_return_the_specific_books_when_get_all_books() {
 
         // given
@@ -140,7 +143,7 @@ class BookPostgreSQLContainerTest(
     }
 
     @Test
-    @Order(6)
+    @Order(7)
     fun should_return_the_added_book_when_insert_one_book() {
 
         // given
@@ -166,7 +169,7 @@ class BookPostgreSQLContainerTest(
     }
 
     @Test
-    @Order(7)
+    @Order(8)
     fun should_return_the_added_book_when_get_one_book() {
 
         // given
@@ -190,32 +193,58 @@ class BookPostgreSQLContainerTest(
     }
 
     @Test
-    @Order(8)
-    fun should_return_the_updated_book_when_update_one_book() {
+    @Order(9)
+    fun should_return_the_created_book_when_update_one_book() {
 
         // given
         val json = objectMapper.writeValueAsString(
             Book(
-                id = 4,
+                id = 5,
                 author = "shinyay",
-                title = "Spring in Practice",
+                title = "Spring Boot in Practice",
                 year = 2020
             )
         )
 
         // when & then
-        mockMvc.perform(put("/api/v1/book/4")
+        mockMvc.perform(put("/api/v1/book/5")
             .contentType(MediaType.APPLICATION_JSON)
             .content(json))
             .andDo(print())
-            .andExpect(status().isNoContent)
+            .andExpect(status().isCreated)
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-            .andExpect(jsonPath("$.id").value(4))
-            .andExpect(jsonPath("$.title").value("Spring in Practice"))
+            .andExpect(jsonPath("$.id").value(5))
+            .andExpect(jsonPath("$.title").value("Spring Boot in Practice"))
             .andExpect(jsonPath("$.author").value("shinyay"))
             .andExpect(jsonPath("$.year").value("2020"))
     }
-
+//
+//    @Test
+//    @Order(10)
+//    fun should_return_the_updated_book_when_update_one_book() {
+//
+//        // given
+//        val json = objectMapper.writeValueAsString(
+//            Book(
+//                id = 5,
+//                author = "shinyay",
+//                title = "Spring in Practice",
+//                year = 2020
+//            )
+//        )
+//
+//        // when & then
+//        mockMvc.perform(put("/api/v1/book/5")
+//            .contentType(MediaType.APPLICATION_JSON)
+//            .content(json))
+//            .andDo(print())
+//            .andExpect(status().isNoContent)
+//            .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+//            .andExpect(jsonPath("$.id").value(4))
+//            .andExpect(jsonPath("$.title").value("Spring in Practice"))
+//            .andExpect(jsonPath("$.author").value("shinyay"))
+//            .andExpect(jsonPath("$.year").value("2020"))
+//    }
 
 //    @Test
 //    @Order(2)
