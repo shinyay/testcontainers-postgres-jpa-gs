@@ -32,7 +32,7 @@ class BookController(val service: BookService) {
 
     @PutMapping("/book/{id}")
     fun updateBook(@PathVariable id: Long, @RequestBody book: Book): ResponseEntity<Book> {
-        return ResponseEntity.status(HttpStatus.OK).body(service.updateBook(id, book))
+        return service.updateBook(id, book)
     }
 
 }
