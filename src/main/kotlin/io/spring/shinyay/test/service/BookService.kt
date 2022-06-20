@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service
 @Service
 class BookService(val repository: BookRepository) {
 
-    fun storeBook(book: Book) = repository.save(book)
+    fun storeBook(book: Book) = ResponseEntity.status(HttpStatus.CREATED).body(repository.save(book))
 
     fun getBooks(): MutableList<Book> = repository.findAll()
 
