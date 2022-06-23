@@ -246,24 +246,5 @@ class BookPostgreSQLContainerTest(
             .andExpect(jsonPath("$.year").value("2020"))
     }
 
-//    @Test
-//    @Order(2)
-//    fun should_be_able_to_save_one_book() {
-//        // given
-//        val json = objectMapper.writeValueAsString(
-//            Book(author = "Shinya Yanagihara", title = "Spring Boot in Action", year = 2020)
-//        )
-//
-//        // when & then
-//        mockMvc.perform(post("/api/v1/books")
-//                .contentType(MediaType.APPLICATION_JSON)
-//                .content(json))
-//            .andDo(print())
-//            .andExpect(status().isCreated)
-//        mockMvc.perform(get("/api/v1/book/1"))
-//            .andDo(print())
-//            .andExpect(jsonPath("$.author").value("Shinya Yanagihara"))
-//            .andExpect(jsonPath("$.title").value("Spring Boot in Action"))
-//            .andExpect(jsonPath("$.year").value(2020))
-//    }
+
 }
