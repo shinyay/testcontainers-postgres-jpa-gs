@@ -267,5 +267,6 @@ class BookPostgreSQLContainerTest(
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
         mockMvc.perform(get("/api/v1/books"))
             .andDo(print())
+            .andExpect(jsonPath("$.length()").value(4))
     }
 }
