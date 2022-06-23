@@ -218,33 +218,33 @@ class BookPostgreSQLContainerTest(
             .andExpect(jsonPath("$.author").value("shinyay"))
             .andExpect(jsonPath("$.year").value("2020"))
     }
-//
-//    @Test
-//    @Order(10)
-//    fun should_return_the_updated_book_when_update_one_book() {
-//
-//        // given
-//        val json = objectMapper.writeValueAsString(
-//            Book(
-//                id = 5,
-//                author = "shinyay",
-//                title = "Spring in Practice",
-//                year = 2020
-//            )
-//        )
-//
-//        // when & then
-//        mockMvc.perform(put("/api/v1/book/5")
-//            .contentType(MediaType.APPLICATION_JSON)
-//            .content(json))
-//            .andDo(print())
-//            .andExpect(status().isNoContent)
-//            .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-//            .andExpect(jsonPath("$.id").value(4))
-//            .andExpect(jsonPath("$.title").value("Spring in Practice"))
-//            .andExpect(jsonPath("$.author").value("shinyay"))
-//            .andExpect(jsonPath("$.year").value("2020"))
-//    }
+
+    @Test
+    @Order(10)
+    fun should_return_the_updated_book_when_update_one_book() {
+
+        // given
+        val json = objectMapper.writeValueAsString(
+            Book(
+                id = 5,
+                author = "shinyay",
+                title = "Spring in Practice",
+                year = 2020
+            )
+        )
+
+        // when & then
+        mockMvc.perform(put("/api/v1/book/5")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(json))
+            .andDo(print())
+            .andExpect(status().isCreated)
+            .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+            .andExpect(jsonPath("$.id").value(5))
+            .andExpect(jsonPath("$.title").value("Spring Boot in Practice"))
+            .andExpect(jsonPath("$.author").value("shinyay"))
+            .andExpect(jsonPath("$.year").value("2020"))
+    }
 
 //    @Test
 //    @Order(2)
