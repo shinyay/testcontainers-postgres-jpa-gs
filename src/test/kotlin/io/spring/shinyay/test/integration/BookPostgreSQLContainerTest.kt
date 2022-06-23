@@ -246,5 +246,24 @@ class BookPostgreSQLContainerTest(
             .andExpect(jsonPath("$.year").value("2020"))
     }
 
+    @Test
+    @Order(11)
+    fun should_deleted_count_when_delete_one_book() {
 
+        // given
+        val json = objectMapper.writeValueAsString(
+            Book(
+                id = 5,
+                author = "shinyay",
+                title = "Spring in Practice",
+                year = 2020
+            )
+        )
+
+        // when & given
+        mockMvc.perform(delete("/api/v1/book/5"))
+            .andDo(print())
+            .andExpect(status().isOk)
+            .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+    }
 }
