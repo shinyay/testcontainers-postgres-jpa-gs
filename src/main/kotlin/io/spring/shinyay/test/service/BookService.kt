@@ -36,4 +36,8 @@ class BookService(val repository: BookRepository) {
         )
     }
 
+    fun deleteBookById(id: Long) {
+        logger.info("deleteBook: $id")
+    }
+
 }
